@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://6cd7btbvia1m"]
 
+<<<<<<< HEAD
 [node name="Hitbox" type="Area2D" unique_id=699024141]
+=======
+[node name="Hitbox" type="Area2D" unique_id=1459750282]
+>>>>>>> parent of 3b6941e (Revert "Rozwiiniecie struktury")
