@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cdl2uc4onn6vt"]
+
+[ext_resource type="Script" uid="uid://dsf67m45w2vnc" path="res://scripts/player/player.gd" id="1_pq8s5"]
+[ext_resource type="Texture2D" uid="uid://2y0odh35qvs7" path="res://icon.svg" id="2_gin2a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fjox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4njan"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t40nw"]
+
+[node name="Player" type="CharacterBody2D" unique_id=267190479 groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_pq8s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=76278488]
+position = Vector2(1, 0)
+texture = ExtResource("2_gin2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910313021]
+shape = SubResource("CapsuleShape2D_6fjox")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=579094367]
+limit_enabled = false
+position_smoothing_enabled = true
+
+[node name="Hurtbox (Area2D)" type="Area2D" parent="." unique_id=110306253]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox (Area2D)" unique_id=1525529195]
+shape = SubResource("CircleShape2D_4njan")
+
+[node name="PickupArea( Area2D)" type="Area2D" parent="." unique_id=1807888299]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea( Area2D)" unique_id=893612460]
+shape = SubResource("CircleShape2D_t40nw")
+
+[node name="Weapons" type="Node2D" parent="." unique_id=193353115]
