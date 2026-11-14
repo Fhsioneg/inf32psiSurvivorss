@@ -25,11 +25,11 @@ func _die() -> void:
 	enemy_died.emit(global_position)
 	queue_free()
 
-##func _physics_process(delta: float) -> void:
-	##if not is_instance_valid(player):
-		##player = get_tree().get_first_node_in_group("player")
-		##return
+func _physics_process(delta: float) -> void:
+	if not is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("player")
+		return
 	
-	##var direction := global_position.direction_to(player.global_position)
-	##velocity = direction * move_speed
-	##move_and_slide()
+	var direction := global_position.direction_to(player.global_position)
+	velocity = direction * move_speed
+	move_and_slide()
