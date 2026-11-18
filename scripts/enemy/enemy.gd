@@ -15,6 +15,11 @@ func _ready() -> void:
 	current_health = max_health
 	add_to_group("enemy")
 	player = get_tree().get_first_node_in_group("player")
+	
+	var hitbox = get_node_or_null("Hitbox")
+	if hitbox:
+		hitbox.owner_node = self
+		hitbox.damage = damage
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
@@ -25,7 +30,7 @@ func _die() -> void:
 	enemy_died.emit(global_position)
 	queue_free()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(player):
 		player = get_tree().get_first_node_in_group("player")
 		return

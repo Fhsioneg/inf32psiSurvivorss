@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dyqymxxo1p6yq"]
+
+[ext_resource type="PackedScene" uid="uid://cdl2uc4onn6vt" path="res://scenes/characters/Player.tscn" id="1_sef2q"]
+[ext_resource type="PackedScene" uid="uid://dgvobbgwtj4r0" path="res://scenes/characters/Enemy.tscn" id="2_4hpko"]
+[ext_resource type="PackedScene" uid="uid://edplx837i3fg" path="res://scenes/components/Hurtbox.tscn" id="2_kvgia"]
+[ext_resource type="PackedScene" uid="uid://6cd7btbvia1m" path="res://scenes/components/Hitbox.tscn" id="4_dobni"]
+
+[node name="TestLevel2" type="Node2D" unique_id=1559070737]
+
+[node name="Player" parent="." unique_id=267190479 instance=ExtResource("1_sef2q")]
+
+[node name="Hurtbox" parent="Player" unique_id=678127539 instance=ExtResource("2_kvgia")]
+owner_path = NodePath("..")
+
+[node name="Enemy" parent="." unique_id=829946128 instance=ExtResource("2_4hpko")]
+
+[node name="Hurtbox" parent="Enemy" unique_id=91050097 instance=ExtResource("2_kvgia")]
+owner_path = NodePath("..")
+
+[node name="Hitbox" parent="Enemy" unique_id=1562588677 instance=ExtResource("4_dobni")]

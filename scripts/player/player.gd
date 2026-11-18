@@ -14,6 +14,9 @@ var xp: int = 0
 var level: int = 1
 var xp_to_next_level: int = 10
 
+var invincible_time: float = 0.0
+const INVINCIBILITY_DURATION := 0.5
+
 # system ulepszeń (na później)
 var owned_upgrades: Dictionary = {}
 var weapons: Dictionary = {}
@@ -24,11 +27,17 @@ func _ready() -> void:
 	health_changed.emit(current_health, max_health)
 
 func _physics_process(_delta: float) -> void:
+	if invincible_time > 0.0:
+		invincible_time -= _delta
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * move_speed
+	
 	move_and_slide()
 
 func take_damage(amount: float) -> void:
+	if invincible_time > 0.0:
+		return
+	invincible_time = INVINCIBILITY_DURATION
 	current_health = max(current_health - amount, 0.0)
 	health_changed.emit(current_health, max_health)
 	if current_health <= 0.0:
