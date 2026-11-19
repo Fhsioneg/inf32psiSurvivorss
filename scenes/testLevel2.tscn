@@ -8,11 +8,13 @@
 [node name="TestLevel2" type="Node2D" unique_id=1559070737]
 
 [node name="Player" parent="." unique_id=267190479 instance=ExtResource("1_sef2q")]
+scale = Vector2(0.33, 0.33)
 
 [node name="Hurtbox" parent="Player" unique_id=678127539 instance=ExtResource("2_kvgia")]
 owner_path = NodePath("..")
 
 [node name="Enemy" parent="." unique_id=829946128 instance=ExtResource("2_4hpko")]
+scale = Vector2(0.56, 0.56)
 
 [node name="Hurtbox" parent="Enemy" unique_id=91050097 instance=ExtResource("2_kvgia")]
 owner_path = NodePath("..")
