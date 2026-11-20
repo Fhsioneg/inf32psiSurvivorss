@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="inf32psiSurvivors"
-run/main_scene="uid://d1br0gjp3rwe0"
+run/main_scene="uid://dd22xij5jagak"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
