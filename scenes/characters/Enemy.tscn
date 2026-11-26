@@ -2,11 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dkgbqvj31yy8a" path="res://scripts/enemy/enemy.gd" id="1_x4qoo"]
 [ext_resource type="Texture2D" uid="uid://2y0odh35qvs7" path="res://icon.svg" id="2_tfno1"]
+[ext_resource type="PackedScene" uid="uid://6cd7btbvia1m" path="res://scenes/components/Hitbox.tscn" id="3_bakb1"]
+[ext_resource type="PackedScene" uid="uid://edplx837i3fg" path="res://scenes/components/Hurtbox.tscn" id="4_yk30n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(130, 129)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfno1"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riqys"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhunq"]
+radius = 5.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=829946128 groups=["enemy"]]
+scale = Vector2(0.35, 0.35)
 collision_layer = 4
 script = ExtResource("1_x4qoo")
 
@@ -15,6 +24,23 @@ texture = ExtResource("2_tfno1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=767628083]
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_bhunq")
+shape = SubResource("CircleShape2D_tfno1")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=226878474]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1406024349]
+path_desired_distance = 12.0
+target_desired_distance = 24.0
+radius = 5.0
+max_speed = 80.0
+
+[node name="Hitbox" parent="." unique_id=1562588677 instance=ExtResource("3_bakb1")]
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=648187008]
+shape = SubResource("CircleShape2D_riqys")
+
+[node name="Hurtbox" parent="." unique_id=678127539 instance=ExtResource("4_yk30n")]
+scale = Vector2(0.99999994, 0.99999994)
+owner_path = NodePath("..")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=118198084]
+shape = SubResource("CircleShape2D_bhunq")

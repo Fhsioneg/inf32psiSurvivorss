@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cwycgd0sal66t"]
+
+[ext_resource type="PackedScene" uid="uid://dgvobbgwtj4r0" path="res://scenes/characters/Enemy.tscn" id="1_q62q5"]
+[ext_resource type="Script" uid="uid://ciljfgphdf4qb" path="res://scripts/enemy/melee_enemy.gd" id="2_fgyn1"]
+
+[node name="MeleeEnemy" unique_id=829946128 instance=ExtResource("1_q62q5")]
+script = ExtResource("2_fgyn1")
+attack_cooldown = 0.5
